@@ -13,7 +13,7 @@ ActiveAdmin.register_page "Dashboard" do
 
     columns do
       column do
-        panel "Recent Posts" do
+        panel "Recent tiles added" do
           ul do
             Tile.all.map do |tile|
               li link_to(tile.name, admin_tile_path(tile))
@@ -23,7 +23,17 @@ ActiveAdmin.register_page "Dashboard" do
       end
 
       column do
-        panel "Recent Posts" do
+        panel "Recent Orders" do
+          ul do
+            Order.all.map do |order|
+              li link_to(order.tile.name, admin_order_path(order))
+            end
+          end
+        end
+      end
+      
+      column do
+        panel "Recent Plumber added" do
           ul do
             Plumber.all.map do |plumber|
               li link_to(plumber.first_name, admin_plumber_path(plumber))
@@ -32,11 +42,6 @@ ActiveAdmin.register_page "Dashboard" do
         end
       end
 
-      column do
-        panel "Info" do
-          para "Welcome to ActiveAdmin."
-        end
-      end
     end
-  end # content
+  end 
 end

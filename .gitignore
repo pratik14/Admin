@@ -6,6 +6,7 @@ files
 
 # DBMigrate plugin: generated SQL
 db/sql
+tmp
 
 # AssetBundler plugin: generated bundles
 javascripts/bundles
